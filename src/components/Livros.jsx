@@ -35,35 +35,29 @@ const Livros = () => {
     
     return (
         <>
-            <div className="container">
-                <h2>Livros</h2>
-                <ul>
-                    {livros.filter(({ ano}) => ano >= 1998)
-                    .map(({nome, ano}) => 
-                    <li key={nome}>
-                        {nome}, {ano}
-                    </li>)
-                    } 
-                </ul>
-                <br />
-               <form action="">
-                <input
-                        type="text"
-                        placeholder="Adicione um livro"
-                        value={newLivro}
-                        onChange={(e) => setNewLivro(e.target.value)}
-                    />
-                    <br />
-                    <input
-                        type="number"
-                        placeholder="Ano de publicação"
-                        value={newAno}
-                        onChange={(e) => setNewAno(e.target.value)}
-                    />
-                    <br />
-                    <button onClick={addNewLivro}>Adicionar livro</button> 
-                </form>    
-            </div>        
+        <h2>Livros</h2>
+        {livros.filter(({ ano}) => ano >= 1998)
+        .map(({nome, ano}) => 
+        <li key={nome}>
+            {nome}, {ano}
+        </li>)
+        } 
+        <br />
+        <input
+            type="text"
+            placeholder="Adicione um livro"
+            value={newLivro}
+            onChange={(e) => setNewLivro(e.target.value)}
+        />
+        <br />
+        <input
+            type="number"
+            placeholder="Ano de publicação"
+            value={newAno}
+            onChange={(e) => setNewAno(e.target.value)}
+        />
+        <br />
+        <button onClick={addNewLivro}>Adicionar livro</button>         
         </>
     )
 }
